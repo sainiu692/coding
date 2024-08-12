@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "atomic": "cpp",
+        "random": "cpp",
+        "vector": "cpp",
+        "new": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
