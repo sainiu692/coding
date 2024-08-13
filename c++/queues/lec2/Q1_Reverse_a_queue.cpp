@@ -24,26 +24,39 @@ void reverseQueue(queue<int>&q){
 */
 
 // Using recursion
-void reverseQueue(queue<int>&q){
-    // // Base case
-    // if(q.empty()){
-    //     return;
-    // }
-    // // Save front element
-    // int element = q.front();
-    // q.pop();
-    // // Recursive call
-    // reverseQueue(q);
-    // // Push element
-    // q.push(element);
-    // base case
-    if(q.empty()){
-        return;
+// void reverseQueue(queue<int>&q){
+//     // // Base case
+//     // if(q.empty()){
+//     //     return;
+//     // }
+//     // // Save front element
+//     // int element = q.front();
+//     // q.pop();
+//     // // Recursive call
+//     // reverseQueue(q);
+//     // // Push element
+//     // q.push(element);
+//     // base case
+//     if(q.empty()){
+//         return;
+//     }
+//     int element=q.front();
+//     q.pop();
+//     reverseQueue(q);
+//     q.push(element);
+// }
+queue<int> rev(queue<int> q) {
+    // Base case
+    if (q.empty()) {
+        return q;
     }
-    int element=q.front();
+    int element = q.front();
     q.pop();
-    reverseQueue(q);
+    // Recursively reverse the remaining queue
+    q = rev(q);
+    // Push the front element to the back of the reversed queue
     q.push(element);
+    return q;
 }
 int main(){
     queue<int>q;
@@ -60,13 +73,13 @@ int main(){
     }
     cout << endl;
 
-    reverseQueue(q);
+    queue<int> newQueue= rev(q);
     // Printing queue
    cout << "Reversed queue: ";
     // Printing reversed queue
-    while (!q.empty()) {
-        cout << q.front() << " ";
-        q.pop();
+    while (!newQueue.empty()) {
+        cout << newQueue.front() << " ";
+        newQueue.pop();
     }
     cout << endl;
     return 0;
