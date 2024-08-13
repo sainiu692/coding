@@ -55,7 +55,7 @@ queue<int> rev(queue<int> q) {
     // Recursively reverse the remaining queue
     q = rev(q);
     // Push the front element to the back of the reversed queue
-    q.push(element);
+    q.push(element); 
     return q;
 }
 int main(){
